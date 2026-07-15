@@ -1,0 +1,4 @@
+chat_model_name: deepseek-v4-pro
+chat_thinking: disabled
+
+embedding_model_name: text-embedding-v4

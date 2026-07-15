@@ -1,0 +1,395 @@
+2026-06-04 00:39:33,839 - agent - ERROR -file_handler.py:40 - [listdir_with_allowed_type]data不是文件夹
+2026-06-04 00:39:33,840 - agent - ERROR -file_handler.py:14 - [get_file_md5_hex]文件txt不存在
+2026-06-04 00:39:33,840 - agent - ERROR -vector_store.py:100 - [加载知识库]txt内容加载失败:Error loading txt
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 42, in lazy_load
+    with open(self.file_path, encoding=self.encoding) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'txt'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 58, in get_file_documents
+    return txt_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 55, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 58, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading txt
+2026-06-04 00:39:33,848 - agent - ERROR -file_handler.py:14 - [get_file_md5_hex]文件pdf不存在
+2026-06-04 00:39:33,849 - agent - ERROR -vector_store.py:100 - [加载知识库]pdf内容加载失败:File path pdf is not a valid file or url
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 61, in get_file_documents
+    return pdf_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 51, in pdf_loader
+    return PyPDFLoader(file_path, passwd).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 281, in __init__
+    super().__init__(file_path, headers=headers)
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 140, in __init__
+    raise ValueError("File path %s is not a valid file or url" % self.file_path)
+ValueError: File path pdf is not a valid file or url
+2026-06-04 00:45:29,016 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问.pdf内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 00:45:29,022 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt内容加载失败:Error loading D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 58, in get_file_documents
+    return txt_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 55, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt
+2026-06-04 00:45:29,028 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt内容加载失败:Error loading D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 58, in get_file_documents
+    return txt_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 55, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt
+2026-06-04 00:45:29,033 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\故障排除.txt内容加载失败:Error loading D:\Note\AI\AI_Agent\data\故障排除.txt
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 2: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 58, in get_file_documents
+    return txt_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 55, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\Note\AI\AI_Agent\data\故障排除.txt
+2026-06-04 00:45:29,038 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\维护保养.txt内容加载失败:Error loading D:\Note\AI\AI_Agent\data\维护保养.txt
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 4: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 58, in get_file_documents
+    return txt_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 55, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\Note\AI\AI_Agent\data\维护保养.txt
+2026-06-04 00:45:29,043 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\选购指南.txt内容加载失败:Error loading D:\Note\AI\AI_Agent\data\选购指南.txt
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 43, in lazy_load
+    text = f.read()
+           ^^^^^^^^
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xab in position 2: illegal multibyte sequence
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 80, in load_document
+    documents = get_file_documents(path)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 58, in get_file_documents
+    return txt_loader(file_path=read_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Note\AI\AI_Agent\utils\file_handler.py", line 55, in txt_loader
+    return TextLoader(file_path).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\document_loaders\text.py", line 56, in lazy_load
+    raise RuntimeError(f"Error loading {self.file_path}") from e
+RuntimeError: Error loading D:\Note\AI\AI_Agent\data\选购指南.txt
+2026-06-04 00:47:15,491 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问.pdf内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 00:47:18,009 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 00:47:21,615 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 00:47:27,435 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\故障排除.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 00:47:30,964 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\维护保养.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 00:47:33,804 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\选购指南.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 01:02:18,537 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问.pdf内容加载失败:HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Max retries exceeded with url: /api/v1/services/embeddings/text-embedding/text-embedding (Caused by NameResolutionError("HTTPSConnection(host='dashscope.aliyuncs.com', port=443): Failed to resolve 'dashscope.aliyuncs.com' ([Errno 11001] getaddrinfo failed)"))
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\socket.py", line 974, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='dashscope.aliyuncs.com', port=443): Failed to resolve 'dashscope.aliyuncs.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Max retries exceeded with url: /api/v1/services/embeddings/text-embedding/text-embedding (Caused by NameResolutionError("HTTPSConnection(host='dashscope.aliyuncs.com', port=443): Failed to resolve 'dashscope.aliyuncs.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 93, in load_document
+    self.vector_store.add_documents(split_document)
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_core\vectorstores\base.py", line 258, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_chroma\vectorstores.py", line 627, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 155, in embed_documents
+    embeddings = embed_with_retry(
+                 ^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 83, in embed_with_retry
+    return _embed_with_retry(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\tenacity\__init__.py", line 336, in wrapped_f
+    return copy(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\tenacity\__init__.py", line 475, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\tenacity\__init__.py", line 376, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\tenacity\__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\tenacity\__init__.py", line 478, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\langchain_community\embeddings\dashscope.py", line 66, in _embed_with_retry
+    resp = embeddings.client.call(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\dashscope\embeddings\text_embedding.py", line 52, in call
+    return super().call(
+           ^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\dashscope\client\base_api.py", line 515, in call
+    return request.call()
+           ^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\dashscope\api_entities\http_request.py", line 143, in call
+    output = next(response)
+             ^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\dashscope\api_entities\http_request.py", line 501, in _handle_request
+    raise e
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\dashscope\api_entities\http_request.py", line 475, in _handle_request
+    response = session.post(
+               ^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\requests\sessions.py", line 640, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\ANACONDA\envs\PromptLangchainTest\Lib\site-packages\requests\adapters.py", line 678, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Max retries exceeded with url: /api/v1/services/embeddings/text-embedding/text-embedding (Caused by NameResolutionError("HTTPSConnection(host='dashscope.aliyuncs.com', port=443): Failed to resolve 'dashscope.aliyuncs.com' ([Errno 11001] getaddrinfo failed)"))
+2026-06-04 01:02:21,437 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 01:02:24,659 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 01:02:30,333 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\故障排除.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 01:02:33,757 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\维护保养.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 01:02:36,674 - agent - ERROR -vector_store.py:100 - [加载知识库]D:\Note\AI\AI_Agent\data\选购指南.txt内容加载失败:unsupported operand type(s) for +: 'NoneType' and 'str'
+Traceback (most recent call last):
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 96, in load_document
+    save_md5_hex(md5_hex)
+  File "D:\Note\AI\AI_Agent\rag\vector_store.py", line 53, in save_md5_hex
+    f.write(md5_for_check + '\n')
+            ~~~~~~~~~~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+2026-06-04 01:06:19,212 - agent - WARNING -vector_store.py:80 - [MD5计算失败]D:\Note\AI\AI_Agent\data\扫地机器人100问.pdf，跳过加载
+2026-06-04 01:06:19,213 - agent - WARNING -vector_store.py:80 - [MD5计算失败]D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt，跳过加载
+2026-06-04 01:06:19,213 - agent - WARNING -vector_store.py:80 - [MD5计算失败]D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt，跳过加载
+2026-06-04 01:06:19,213 - agent - WARNING -vector_store.py:80 - [MD5计算失败]D:\Note\AI\AI_Agent\data\故障排除.txt，跳过加载
+2026-06-04 01:06:19,214 - agent - WARNING -vector_store.py:80 - [MD5计算失败]D:\Note\AI\AI_Agent\data\维护保养.txt，跳过加载
+2026-06-04 01:06:19,214 - agent - WARNING -vector_store.py:80 - [MD5计算失败]D:\Note\AI\AI_Agent\data\选购指南.txt，跳过加载
+2026-06-04 01:08:57,377 - agent - INFO -vector_store.py:101 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问.pdf内容加载成功
+2026-06-04 01:08:59,939 - agent - INFO -vector_store.py:101 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt内容加载成功
+2026-06-04 01:09:03,188 - agent - INFO -vector_store.py:101 - [加载知识库]D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt内容加载成功
+2026-06-04 01:09:08,978 - agent - INFO -vector_store.py:101 - [加载知识库]D:\Note\AI\AI_Agent\data\故障排除.txt内容加载成功
+2026-06-04 01:09:12,234 - agent - INFO -vector_store.py:101 - [加载知识库]D:\Note\AI\AI_Agent\data\维护保养.txt内容加载成功
+2026-06-04 01:09:15,139 - agent - INFO -vector_store.py:101 - [加载知识库]D:\Note\AI\AI_Agent\data\选购指南.txt内容加载成功
+2026-06-04 01:10:41,761 - agent - INFO -vector_store.py:76 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问.pdf内容已经存在知识库内,跳过
+2026-06-04 01:10:41,762 - agent - INFO -vector_store.py:76 - [加载知识库]D:\Note\AI\AI_Agent\data\扫地机器人100问2.txt内容已经存在知识库内,跳过
+2026-06-04 01:10:41,762 - agent - INFO -vector_store.py:76 - [加载知识库]D:\Note\AI\AI_Agent\data\扫拖一体机器人100问.txt内容已经存在知识库内,跳过
+2026-06-04 01:10:41,763 - agent - INFO -vector_store.py:76 - [加载知识库]D:\Note\AI\AI_Agent\data\故障排除.txt内容已经存在知识库内,跳过
+2026-06-04 01:10:41,763 - agent - INFO -vector_store.py:76 - [加载知识库]D:\Note\AI\AI_Agent\data\维护保养.txt内容已经存在知识库内,跳过
+2026-06-04 01:10:41,764 - agent - INFO -vector_store.py:76 - [加载知识库]D:\Note\AI\AI_Agent\data\选购指南.txt内容已经存在知识库内,跳过
