@@ -37,3 +37,5 @@ streamlit run app.py
 
 - 确保已安装 Python 3.x 版本
 - 如遇端口冲突，可使用 `streamlit run app.py --server.port 8502` 指定其他端口
+- **DEEPSEEK_API_KEY**: 运行此项目前请先在环境变量中设置DEEPSEEK_API_KEY即deepseek-key
+- **DASHSCOPE_API_KEY**：运行此像目前请先在环境变量中设置DASHSCOPE_API_KEY即阿里云key
